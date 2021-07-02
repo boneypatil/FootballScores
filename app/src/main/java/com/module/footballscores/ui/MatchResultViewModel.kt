@@ -12,17 +12,14 @@ import kotlinx.coroutines.launch
 
 class MatchResultViewModel @Inject constructor(private val matchResultSource: MatchResultSource) : ViewModel() {
 
-    val weeklyNewsLiveData: LiveData<List<MatchResults>>
-        get() = _weeklyNewsLiveData
-    private val _weeklyNewsLiveData = MutableLiveData<List<MatchResults>>()
+    val matchResultLiveData: LiveData<List<MatchResults>>
+        get() = _matchResultLiveData
+    private val _matchResultLiveData = MutableLiveData<List<MatchResults>>()
 
     val isLoading: LiveData<Boolean>
         get() = _isLoading
     private val _isLoading = MutableLiveData<Boolean>()
 
-    val redirectToAllNewsLiveData: LiveData<Any>
-        get() = _redirectToAllNewsLiveData
-    private val _redirectToAllNewsLiveData = MutableLiveData<Any>()
 
     init {
         loadMatchResult()
@@ -35,7 +32,7 @@ class MatchResultViewModel @Inject constructor(private val matchResultSource: Ma
                 matchResultSource.getMatchResultsSource1()
 
             _isLoading.postValue(false)
-            _weeklyNewsLiveData.postValue(news)
+            _matchResultLiveData.postValue(news)
         }
     }
 }
