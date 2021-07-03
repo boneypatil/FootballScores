@@ -59,6 +59,27 @@
           
   *  __Data Binding__ <br/>
     – replace basic operations with UI (e.g. findViewById() ) to the XML
+    
+## Supported API
+* <a href="https://run.mocky.io/v3/3fadb468-fcdb-4c1f-ad9c-86603aa595b2">API 1</a><br/>
+* <a href="https://run.mocky.io/v3/715e6823-579c-4f31-b90c-51c6bfd3b8d0">API 2</a><br/>
+
+
+## Sample Response 
+
+  <div align = "center">
+	<p> 
+		[{
+	"team_A": "FC Barcelona",
+	"team_B": "Chelsea",
+	"score_A": "2",
+	"score_B": "3",
+	"link_A": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnVkgyvVxOrIGUfaoGPOQPbXKzQUKz7faW71gC7nnI_clFEPbQ81EDQ5T575enZ1Ea5PA&usqp=CAU",
+	"link_B": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnVkgyvVxOrIGUfaoGPOQPbXKzQUKz7faW71gC7nnI_clFEPbQ81EDQ5T575enZ1Ea5PA&usqp=CAU",
+	"date": "25 July 2021 21:00"
+}]
+	</p>
+    </div>
 
 ## All libraries: <br/>
 
