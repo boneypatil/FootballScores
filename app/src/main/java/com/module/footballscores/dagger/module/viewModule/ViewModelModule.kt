@@ -17,7 +17,7 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MatchResultViewModel::class)
-    internal abstract fun bindNewsViewModel(viewModel: MatchResultViewModel): ViewModel
+    internal abstract fun bindMatchResultViewModel(viewModel: MatchResultViewModel): ViewModel
 
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

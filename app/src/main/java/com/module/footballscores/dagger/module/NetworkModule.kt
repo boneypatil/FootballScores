@@ -56,6 +56,6 @@ class NetworkModule(private val application: Application) {
 
     @Provides
     @Reusable
-    internal fun provideNewsSource(api: MatchResultService): MatchResultSource = MatchResultSource(api)
+    internal fun provideMatchResultSource(api: MatchResultService): MatchResultSource = MatchResultSource(api)
 
 }
