@@ -1,4 +1,4 @@
-# FootballScores
+# Scores
 
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.3.61-blue.svg)](https://kotlinlang.org)
@@ -6,7 +6,7 @@
 [![Material design](https://img.shields.io/badge/Material%20Design-1.2.0--alpha%205-%237464f2.svg)](https://material.io)
 [![The API Generator ](https://run.mocky.io/)
 
-### Application which retrieves data from Webserver (via Retrofit). There are applying MVVM architecture pattern and Dagger 2 example.
+### Application which retrieves data from Webserver (via Retrofit). We are using MVVM architecture pattern and Dagger 2 example.
  # Overview:
 
 * ### __Model__
@@ -48,6 +48,7 @@
       – managing asynchronous network queries<br/>
       – using instead of callbacks<br/>
       – providing light asynchronous operations
+      - combining 2 api responce demonstration 
 
 * ### __ViewModel__
    * __LiveData__ <br/>
@@ -56,6 +57,7 @@
 * ### __View__
    * __Fragments__ <br/>
      – interactive displaying and click reflecting
+     - pull to refresh functionality 
           
   *  __Data Binding__ <br/>
     – replace basic operations with UI (e.g. findViewById() ) to the XML
