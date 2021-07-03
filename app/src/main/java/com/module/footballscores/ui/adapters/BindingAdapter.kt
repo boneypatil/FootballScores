@@ -29,15 +29,15 @@ fun bindImage(imageView: ImageView, imgUrl: String?) {
 
 
 
-const val TIMESTAMP_DATE_FORMAT_12H = "dd MMMM yyyy hh:mm"
-@BindingAdapter("dateTime")
-fun getCurrentDateTime(tv:TextView) {
-    val sdf = SimpleDateFormat(
-        TIMESTAMP_DATE_FORMAT_12H
-    )
-
-    tv?.text = sdf.format(Date())
-}
+//const val TIMESTAMP_DATE_FORMAT_12H = "dd MMMM yyyy hh:mm"
+//@BindingAdapter("dateTime")
+//fun bindDate(tv:TextView) {
+//    val sdf = SimpleDateFormat(
+//        TIMESTAMP_DATE_FORMAT_12H
+//    )
+//
+//    tv?.text = sdf.format(Date())
+//}
 
 @BindingAdapter("avaURL")
 fun bindAva(imageView: ImageView, imgUrl: Uri?) {

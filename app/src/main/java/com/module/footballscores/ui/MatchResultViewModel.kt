@@ -8,6 +8,7 @@ import com.module.footballscores.model.MatchResults
 import com.module.footballscores.network.MatchResultSource
 import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class MatchResultViewModel @Inject constructor(private val matchResultSource: MatchResultSource) : ViewModel() {
@@ -25,14 +26,15 @@ class MatchResultViewModel @Inject constructor(private val matchResultSource: Ma
         loadMatchResult()
     }
 
-    private fun loadMatchResult() {
+     fun loadMatchResult() {
         _isLoading.value = true
         viewModelScope.launch {
-            val news =
-                matchResultSource.getMatchResultsSource1()
+            val resultOneDeferred = async {  matchResultSource.getMatchResultsSource1() }
+            val resultTwoDeferred = async { matchResultSource.getMatchResultsSource2() }
 
+            val combine = resultOneDeferred.await()+resultTwoDeferred.await()
             _isLoading.postValue(false)
-            _matchResultLiveData.postValue(news)
+            _matchResultLiveData.postValue(combine)
         }
     }
 }

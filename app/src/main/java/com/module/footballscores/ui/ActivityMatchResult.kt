@@ -3,15 +3,17 @@ package com.module.footballscores.ui
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.module.footballscores.R
-import com.module.footballscores.dagger.App
+import com.module.footballscores.base.BaseResultDashboardFragment
+import com.module.footballscores.model.MatchResults
 
-open class ActivityMatchResult : AppCompatActivity() {
+open class ActivityMatchResult : AppCompatActivity(),
+    BaseResultDashboardFragment.DashboardListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        App.appComponent.inject(this)
         setContentView(R.layout.activity_main_result_activity)
         selectScreen(MatchResultDashboardScreen.MatchResultScreen)
     }
@@ -21,10 +23,11 @@ open class ActivityMatchResult : AppCompatActivity() {
         dashboardScreen: MatchResultDashboardScreen,
         bundleToSend: Bundle? = null
     ) {
-        val fragment: Fragment = when (dashboardScreen) {
+        val fragment: BaseResultDashboardFragment = when (dashboardScreen) {
             MatchResultDashboardScreen.MatchResultScreen -> FragmentMatchResult()
-            MatchResultDashboardScreen.MatchResultDetailScreen -> FragmentMatchResult()
+            MatchResultDashboardScreen.MatchResultDetailScreen -> FragmentMatchResultDetails()
         }
+        fragment.setListener(this)
         transactFragment(fragment, R.id.container, arguments = bundleToSend)
     }
 
@@ -49,6 +52,21 @@ open class ActivityMatchResult : AppCompatActivity() {
 
         transaction
             .commit()
+    }
+
+    override fun onResultSelected(matchResult: MatchResults) {
+        selectScreen(
+            MatchResultDashboardScreen.MatchResultDetailScreen,
+            bundleOf(Pair(getString(R.string.intent_extra_match_result), matchResult))
+        )
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1) {
+                supportFragmentManager.popBackStack()
+            }else
+                this.finish()
+
     }
 
 }

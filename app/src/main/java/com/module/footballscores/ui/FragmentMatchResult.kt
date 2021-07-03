@@ -4,57 +4,58 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.dagger.module.viewModule.ViewModelFactory
+import com.module.footballscores.base.BaseResultDashboardFragment
 import com.module.footballscores.dagger.App
-import com.module.footballscores.databinding.MainFragmentBinding
+import com.module.footballscores.databinding.FragmentMainResultBinding
 import com.module.footballscores.model.MatchResults
 import com.module.footballscores.ui.adapters.MatchResultsAdapter
 import com.module.footballscores.utils.hide
+import com.module.footballscores.utils.show
 import javax.inject.Inject
 
-class FragmentMatchResult : Fragment() {
+class FragmentMatchResult : BaseResultDashboardFragment() {
 
-    companion object {
-        fun newInstance() = FragmentMatchResult()
-    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var matchResultAdapter: MatchResultsAdapter
 
     private lateinit var viewModel: MatchResultViewModel
-    private lateinit var binding: MainFragmentBinding
+    private lateinit var binding: FragmentMainResultBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         App.appComponent.inject(this)
-        binding = MainFragmentBinding.inflate(inflater)
+        binding = FragmentMainResultBinding.inflate(inflater)
 
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MatchResultViewModel::class.java)
         initAdapter()
         setObservers()
+        initListener()
+    }
 
+    private fun initListener() {
+        binding.swipe.setOnRefreshListener {
+            viewModel.loadMatchResult()
+        }
     }
 
     private fun initAdapter() {
         binding.recyclerMatchResults.adapter = MatchResultsAdapter {
-            Toast.makeText(requireContext(), "${it.team_A}", Toast.LENGTH_LONG).show()
+            onResultSelected(it)
         }
         matchResultAdapter = binding.recyclerMatchResults.adapter as MatchResultsAdapter
-
-
     }
 
     private fun setObservers() {
@@ -67,8 +68,9 @@ class FragmentMatchResult : Fragment() {
         matchResultAdapter.submitList(list)
     }
 
-    private val loaderObserver = Observer<Boolean> { it ->
-        if (it == false) binding.progressBar.hide()
+    private val loaderObserver = Observer<Boolean> {
+        if (it == false){ binding.progressBar.show(it)
+        binding.swipe.isRefreshing = it}
     }
 
 }

@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="matchResult"
+            name="detailMatchResult"
             type="com.module.footballscores.model.MatchResults" />
 
     </data>
@@ -19,11 +19,12 @@
         android:background="#d3d3d3">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="2dp"
@@ -52,8 +53,8 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:maxLength="5"
-                    android:text="@{matchResult.score}"
                     android:minWidth="@dimen/dimens_score_min_width"
+                    android:text="@{detailMatchResult.score_A}"
                     android:textColor="@color/black"
                     android:textSize="50sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -75,10 +76,10 @@
 
                     <ImageView
                         android:id="@+id/ivTeam1"
+                        imageUrl="@{detailMatchResult.link_A}"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
-                        imageUrl="@{matchResult.link_A}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -96,17 +97,16 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/res_rounded_circle"
                     android:gravity="center"
-                    android:translationZ="12dp"
                     app:layout_constraintEnd_toStartOf="@+id/tvScoreHolder2"
                     app:layout_constraintStart_toEndOf="@+id/llIVHolder1"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/ivTeam2"
+                        imageUrl="@{detailMatchResult.link_B}"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
-                        imageUrl="@{matchResult.link_B}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +116,7 @@
 
                 <TextView
                     android:id="@+id/tvScoreHolder2"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginLeft="@dimen/dp10"
                     android:layout_marginTop="@dimen/dp20"
@@ -127,9 +127,9 @@
                     android:elevation="10dp"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="@{matchResult.score}"
                     android:maxLength="5"
                     android:minWidth="@dimen/dimens_score_min_width"
+                    android:text="@{detailMatchResult.score_B}"
                     android:textColor="@color/black"
                     android:textSize="50sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -142,16 +142,16 @@
                     android:id="@+id/tvTeam1Name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:autoSizeMaxTextSize="18dp"
-                    android:padding="5dp"
-                    android:maxLength="5"
-                    android:gravity="center"
-                    android:autoSizeMinTextSize="14dp"
+                    android:autoSizeMaxTextSize="18sp"
+                    android:autoSizeMinTextSize="14sp"
                     android:autoSizeTextType="uniform"
                     android:fontFamily="@font/roboto_black_italic"
+                    android:gravity="center"
+                    android:maxLength="5"
+                    android:padding="5dp"
+                    android:text="@{detailMatchResult.team_A}"
                     android:textColor="@color/black"
                     android:textSize="18dp"
-                    android:text="@{matchResult.team_A}"
                     app:layout_constraintEnd_toEndOf="@+id/llIVHolder1"
                     app:layout_constraintStart_toEndOf="@+id/tvScoreHolder1"
                     app:layout_constraintTop_toBottomOf="@+id/llIVHolder1"
@@ -161,15 +161,15 @@
                     android:id="@+id/tvTeam2Name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:autoSizeMaxTextSize="18dp"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:autoSizeMinTextSize="14dp"
+                    android:autoSizeMaxTextSize="18sp"
+                    android:autoSizeMinTextSize="14sp"
                     android:autoSizeTextType="uniform"
                     android:fontFamily="@font/roboto_black_italic"
+                    android:gravity="center"
                     android:maxLength="5"
+                    android:padding="5dp"
+                    android:text="@{detailMatchResult.team_B}"
                     android:textColor="@color/black"
-                    android:text="@{matchResult.team_B}"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/tvScoreHolder2"
                     app:layout_constraintStart_toEndOf="@+id/llIVHolder1"
@@ -182,14 +182,17 @@
                     android:layout_height="0dp"
                     android:fontFamily="@font/roboto_black_italic"
                     android:gravity="center"
-                    android:text="@{matchResult.date}"
-                    tools:text="Sat 24 Nov 4:00pm"
+                    android:text="@{detailMatchResult.date}"
                     android:textColor="@color/design_default_color_error"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
+                    android:autoSizeMaxTextSize="14sp"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tvScoreHolder2"
                     app:layout_constraintStart_toEndOf="@+id/tvScoreHolder1"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTeam1Name" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvTeam1Name"
+                    tools:text="Sat 24 Nov 4:00pm" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
