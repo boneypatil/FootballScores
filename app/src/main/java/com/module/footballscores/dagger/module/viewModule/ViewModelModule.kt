@@ -3,7 +3,7 @@ package com.module.footballscores.dagger.module.viewModule
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.dagger.module.viewModule.ViewModelFactory
-import com.module.footballscores.ui.MatchResultViewModel
+import com.module.footballscores.viewmodel.MatchResultViewModel
 import com.module.footballscores.utils.ViewModelKey
 
 

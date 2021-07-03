@@ -1,4 +1,4 @@
-package com.module.footballscores.ui
+package com.module.footballscores.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -12,8 +12,8 @@ import com.module.footballscores.dagger.App
 import com.module.footballscores.databinding.FragmentMainResultBinding
 import com.module.footballscores.model.MatchResults
 import com.module.footballscores.ui.adapters.MatchResultsAdapter
-import com.module.footballscores.utils.hide
 import com.module.footballscores.utils.show
+import com.module.footballscores.viewmodel.MatchResultViewModel
 import javax.inject.Inject
 
 class FragmentMatchResult : BaseResultDashboardFragment() {
