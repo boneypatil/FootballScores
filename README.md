@@ -4,7 +4,7 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.3.61-blue.svg)](https://kotlinlang.org)
 [![Dagger2](https://img.shields.io/badge/Dagger%202-2.26-red.svg)](https://github.com/google/dagger)
 [![Material design](https://img.shields.io/badge/Material%20Design-1.2.0--alpha%205-%237464f2.svg)](https://material.io)
-[![The API Generator ](https://run.mocky.io/)
+[![The API Generator ](https://designer.mocky.io/static/media/logo-dark.2d24ebf2.png)](https://designer.mocky.io/)
 
 ### Application which retrieves data from Webserver (via Retrofit). We are using MVVM architecture pattern and Dagger 2 example.
  # Overview:
