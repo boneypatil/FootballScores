@@ -47,7 +47,7 @@
    * __Coroutines__ <br/>
       – managing asynchronous network queries<br/>
       – using instead of callbacks<br/>
-      – providing light asynchronous operations, combining 2 api responce demonstration 
+      – providing light asynchronous operations, combining 2 api response demonstration 
 
 * ### __ViewModel__
    * __LiveData__ <br/>
