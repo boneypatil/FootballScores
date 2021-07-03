@@ -47,8 +47,7 @@
    * __Coroutines__ <br/>
       – managing asynchronous network queries<br/>
       – using instead of callbacks<br/>
-      – providing light asynchronous operations
-      - combining 2 api responce demonstration 
+      – providing light asynchronous operations, combining 2 api responce demonstration 
 
 * ### __ViewModel__
    * __LiveData__ <br/>
@@ -56,8 +55,7 @@
          
 * ### __View__
    * __Fragments__ <br/>
-     – interactive displaying and click reflecting
-     - pull to refresh functionality 
+     – interactive displaying and click reflecting and pull to refresh functionality 
           
   *  __Data Binding__ <br/>
     – replace basic operations with UI (e.g. findViewById() ) to the XML
