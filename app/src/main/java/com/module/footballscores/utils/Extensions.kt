@@ -1,8 +1,8 @@
 package com.module.footballscores.utils
 
 import android.view.View
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 fun View.hide() {
@@ -12,3 +12,5 @@ fun View.hide() {
 fun View.show() {
     visibility = View.VISIBLE
 }
+
+
