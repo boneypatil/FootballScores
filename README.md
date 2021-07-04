@@ -80,6 +80,12 @@
 }]
 	</p>
     </div>
+    
+## How to run the app
+* There are 3 variants 
+* mock , dev, production 
+* Set the variant to mockDebug
+* Its all set to run 
 
 ## All libraries: <br/>
 
