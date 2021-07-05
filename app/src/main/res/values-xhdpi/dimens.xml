@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimens_score_min_width">70dp</dimen>
+    <dimen name="dimen_circular_image_holder_width">50dp</dimen>
+    <dimen name="dimen_circular_image_holder_height">50dp</dimen>
+
+</resources>
