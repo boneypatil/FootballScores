@@ -46,13 +46,13 @@ android {
             manifestPlaceholders = [appLabel: "@string/app_name_local"]
         }
         dev {
-            buildConfigField 'String', baseURL, '"https://dev-url.com/"'
+            buildConfigField 'String', baseURL, '"https://run.mocky.io/"'
             applicationIdSuffix ".dev"
             dimension "default"
             manifestPlaceholders = [appLabel: "@string/app_name_dev"]
         }
         prod {
-            buildConfigField 'String', baseURL, '"ENOC_BASE_URL_PROD"'
+            buildConfigField 'String', baseURL, '"https://run.mocky.io/"'
             applicationIdSuffix ""
             versionNameSuffix ""
             dimension "default"
