@@ -29,6 +29,9 @@ class MatchResultViewModel @Inject constructor(private val matchResultSource: Ma
      fun loadMatchResult() {
         _isLoading.value = true
         viewModelScope.launch {
+            try {
+
+
 
             val resultOneDeferred = async {  matchResultSource.getMatchResultsSource1() }
             val resultTwoDeferred = async { matchResultSource.getMatchResultsSource2() }
@@ -36,6 +39,9 @@ class MatchResultViewModel @Inject constructor(private val matchResultSource: Ma
             val combine = resultOneDeferred.await()+resultTwoDeferred.await()
             _isLoading.postValue(false)
             _matchResultLiveData.postValue(combine)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
         }
     }
 }
