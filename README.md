@@ -87,6 +87,10 @@
 * Set the variant to mockDebug
 * Its all set to run 
 
+## A demonstration to show app without offline and with offline 
+https://github.com/boneypatil/FootballScores/blob/develop/app/src/main/res/raw/without_offline.mp4
+* The above video shows app with out offline support  
+
 ## All libraries: <br/>
 
 * Android X
