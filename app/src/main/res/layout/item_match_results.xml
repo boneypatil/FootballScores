@@ -24,8 +24,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginBottom="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
             app:cardCornerRadius="8dp"
             app:cardElevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -59,18 +59,23 @@
                     android:textSize="50sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/llIVHolder1"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_weight="2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="1" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/llIVHolder1"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/dimen_circular_image_holder_width"
+                    android:layout_height="@dimen/dimen_circular_image_holder_height"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/res_rounded_circle"
                     android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="@+id/llIVHolder2"
+
+                    app:layout_constraintEnd_toStartOf="@+id/llIVHolder2"
+                    app:layout_constraintHorizontal_weight="1.5"
                     app:layout_constraintStart_toEndOf="@+id/tvScoreHolder1"
                     app:layout_constraintTop_toTopOf="@+id/llIVHolder2">
 
@@ -90,14 +95,16 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/llIVHolder2"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/dimen_circular_image_holder_width"
+                    android:layout_height="@dimen/dimen_circular_image_holder_height"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="10dp"
+
                     android:layout_marginRight="10dp"
                     android:background="@drawable/res_rounded_circle"
                     android:gravity="center"
                     app:layout_constraintEnd_toStartOf="@+id/tvScoreHolder2"
+                    app:layout_constraintHorizontal_weight="1.5"
                     app:layout_constraintStart_toEndOf="@+id/llIVHolder1"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -129,11 +136,13 @@
                     android:gravity="center"
                     android:maxLength="5"
                     android:minWidth="@dimen/dimens_score_min_width"
+
                     android:text="@{matchResult.score_B}"
                     android:textColor="@color/black"
                     android:textSize="50sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="2"
                     app:layout_constraintStart_toEndOf="@+id/llIVHolder2"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="3" />
@@ -180,16 +189,18 @@
                     android:id="@+id/textView4"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:autoSizeMaxTextSize="14sp"
+
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeTextType="uniform"
                     android:fontFamily="@font/roboto_black_italic"
                     android:gravity="center"
                     android:text="@{matchResult.date}"
                     android:textColor="@color/design_default_color_error"
                     android:textSize="14sp"
-                    android:autoSizeMaxTextSize="14sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tvScoreHolder2"
+                    app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/tvScoreHolder1"
                     app:layout_constraintTop_toBottomOf="@+id/tvTeam1Name"
                     tools:text="Sat 24 Nov 4:00pm" />

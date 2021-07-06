@@ -3,6 +3,7 @@ package com.module.footballscores.dagger.module
 import android.app.Application
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.module.footballscores.BuildConfig
+import com.module.footballscores.dagger.component.ForceCacheInterceptor
 import com.module.footballscores.network.MatchResultService
 import com.module.footballscores.network.MatchResultSource
 
@@ -24,9 +25,6 @@ class NetworkModule(private val application: Application) {
     @Provides
     @Reusable
     internal fun provideOkHttpClient(): OkHttpClient {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BASIC
-
         val cacheDir = File(application.cacheDir, UUID.randomUUID().toString())
         // 15 MiB cache
         val cache = Cache(cacheDir, 15 * 1024 * 1024)
@@ -37,7 +35,7 @@ class NetworkModule(private val application: Application) {
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
             .writeTimeout(60, TimeUnit.SECONDS)
-            .addInterceptor(interceptor)
+            .addInterceptor(ForceCacheInterceptor())
             .build()
     }
 

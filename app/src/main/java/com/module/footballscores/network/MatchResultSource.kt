@@ -7,22 +7,31 @@ import javax.inject.Inject
 class MatchResultSource @Inject constructor(private val api: MatchResultService) {
 
     suspend fun getMatchResultsSource1(): List<MatchResults> {
-        val newsResponse = api.getMatchResultsSource1()
-
-        return if (newsResponse.isNullOrEmpty()) {
-            emptyList()
-        } else {
-            newsResponse
+        try {
+            val newsResponse = api.getMatchResultsSource1()
+            return if (newsResponse.isNullOrEmpty()) {
+                emptyList()
+            } else {
+                newsResponse
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
+        return  emptyList()
     }
 
     suspend fun getMatchResultsSource2(): List<MatchResults> {
-        val newsResponse = api.getMatchResultsSource2()
-
-        return if (newsResponse.isNullOrEmpty()) {
-            emptyList()
-        } else {
-            newsResponse
+        try {
+            val newsResponse = api.getMatchResultsSource2()
+            return if (newsResponse.isNullOrEmpty()) {
+                emptyList()
+            } else {
+                newsResponse
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
+        return  emptyList()
+
     }
 }

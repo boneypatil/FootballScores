@@ -10,6 +10,4 @@ import javax.inject.Singleton
 @Component(modules = [NetworkModule::class, ViewModelModule::class])
 interface AppComponent {
     fun inject(fragmentMatchResult: FragmentMatchResult)
-
-
 }
