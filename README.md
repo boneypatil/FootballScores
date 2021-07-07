@@ -91,8 +91,8 @@
 https://github.com/boneypatil/FootballScores/blob/develop/app/src/main/res/raw/without_offline.mp4
 * The above video shows app with out offline support  
 
-https://github.com/boneypatil/FootballScores/blob/develop/app/src/main/res/raw/offline_support.mp4
-*The above video shows the offline support
+https://github.com/boneypatil/FootballScores/blob/develop/app/src/main/res/raw/offline_support.mp4  
+* The above video shows the offline support
 
 ## All libraries: <br/>
 
